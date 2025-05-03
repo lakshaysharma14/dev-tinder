@@ -1,0 +1,46 @@
+
+// ====== Simple Routes ==========
+
+// app.get('/user',(req,res)=>{
+//     const user = { 
+//         name:"Lakshay",
+//         age:20,
+//     };
+//     res.send(user);
+// });
+
+// app.post('/user',(req,res)=>{    
+//     res.send("Data Posted Successfully!!");
+// });
+
+// app.delete('/user',(req,res) => {
+//     res.send("User Deleted Successfully");
+// });
+
+// ====== Dynamic Routes =========
+/*
+app.get('/user/:userId/:age/:uuid',(req,res)=>{
+    console.log(req.params);
+    res.end()
+});
+
+//http://localhost:3000/user?userId=23&age=1
+app.get('/user',(req,res)=>{
+    console.log(req.query);
+    res.send('s');
+});
+*/
+// ===============================
+
+app.use("/user",
+    (req,res,next) => {
+        console.log("#1");
+        next();
+    },
+    (req,res,next) => {
+        console.log("#2");
+        res.send("response ...")
+    }
+);
+
+
